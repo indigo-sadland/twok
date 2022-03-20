@@ -1,0 +1,22 @@
+{
+  "Assets": {
+    "RelativePath": "/assets",
+    "Root": "./assets",
+    "HTMLGlob": "./assets/static/html/*.html"
+  },
+  "Server": {
+    "Hostname": "",
+    "HTTPPort": 8080
+  },
+  "MySQL": {
+    "Username": "test",
+    "Password": "test",
+    "Database": "twok",
+    "Charset": "utf8mb4",
+    "Collation": "utf8mb4_unicode_ci",
+    "Hostname": "127.0.0.1",
+    "Port": 3306,
+    "Parameter": "parseTime=true"
+  }
+
+}
