@@ -9,8 +9,8 @@
     "HTTPPort": 8080
   },
   "MySQL": {
-    "Username": "test",
-    "Password": "test",
+    "Username": "indigo",
+    "Password": "f^1Hi!c8",
     "Database": "twok",
     "Charset": "utf8mb4",
     "Collation": "utf8mb4_unicode_ci",

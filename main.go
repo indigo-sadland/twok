@@ -1,8 +1,8 @@
 package main
 
 import (
-	"twok/boot"
-	"twok/config"
+	"github.com/indigo-sadland/twok/boot"
+	"github.com/indigo-sadland/twok/config"
 )
 
 func main() {
