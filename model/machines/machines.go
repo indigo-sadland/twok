@@ -42,3 +42,11 @@ func Update(db Connection, ID, status string) (sql.Result, error) {
 	return result, err
 
 }
+
+// SelectAll gets all data from the machines table.
+func SelectAll(db Connection) ([]Item, error){
+	var result []Item
+	err := db.Select(&result, fmt.Sprintf(`SELECT * FROM %v`, table))
+
+	return  result, err
+}

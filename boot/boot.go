@@ -6,6 +6,9 @@ import (
 	"github.com/indigo-sadland/twok/config/holder"
 	"github.com/indigo-sadland/twok/controllers"
 	"github.com/indigo-sadland/twok/core/router"
+
+	"github.com/projectdiscovery/gologger"
+
 )
 
 func Initialize(conf *config.Values) {
@@ -13,7 +16,10 @@ func Initialize(conf *config.Values) {
 	r := router.SetRouter()
 
 	// Connect to MySQL DB.
-	dbCon, _ := conf.MySQL.Connect()
+	dbCon, err := conf.MySQL.Connect()
+	if err != nil {
+		gologger.Error().Msgf(err.Error())
+	}
 
 	// load html files
 	r.Do.LoadHTMLGlob(conf.Assets.GetHTMLGlob())
@@ -21,6 +27,9 @@ func Initialize(conf *config.Values) {
 	r.Do.Static(conf.Assets.GetAssets())
 
 	controllers.Load()
+
+	// Store the config connection in holder.
+	holder.StoreConfig(*conf)
 
 	// Store the DB connection in holder.
 	holder.StoreDB(dbCon)
