@@ -1,10 +1,8 @@
 package holder
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/indigo-sadland/twok/config"
 	"github.com/jmoiron/sqlx"
-	"net/http"
 	"sync"
 )
 
@@ -18,8 +16,6 @@ var (
 type Values struct {
 	Config config.Values
 	//Sess   *sessions.Session
-	W  gin.ResponseWriter
-	R  *http.Request
 	DB *sqlx.DB
 }
 
@@ -56,8 +52,6 @@ func Context() Values {
 	i := Values{
 		Config: configValues,
 		//Sess:   sess,
-		//W:  w,
-		//R:  r,
 		DB: dbInfo,
 	}
 	mutex.RUnlock()

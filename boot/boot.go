@@ -26,7 +26,7 @@ func Initialize(conf *config.Values) {
 	// load static
 	r.Do.Static(conf.Assets.GetAssets())
 
-	controllers.Load()
+	controllers.LoadRoutes()
 
 	// Store the config connection in holder.
 	holder.StoreConfig(*conf)
@@ -35,5 +35,4 @@ func Initialize(conf *config.Values) {
 	holder.StoreDB(dbCon)
 
 	r.Do.Run(conf.Server.GetAddress())
-
 }

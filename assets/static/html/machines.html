@@ -43,14 +43,19 @@
                 <table class="table is-fullwidth">
                     <thead class="table-header">
                     <tr class="table-head-row">
-                        <th style="width: calc(33.3333% + 0px);">
+                        <th style="width: calc(13.3333% + 0px);">
                             <span class="table-head-label">
                                 Name
                             </span>
                         </th>
-                        <th style="width: calc(33.3333% + 0px);">
+                        <th style="width: calc(8.3333% + 0px);">
                             <span class="table-head-label">
                                 OS
+                            </span>
+                        </th>
+                        <th style="width: calc(13.3333% + 0px);">
+                            <span class="table-head-label">
+                                IP
                             </span>
                         </th>
                         <th style="width: 10%;">
@@ -63,14 +68,17 @@
                     <tbody>
                     {{ range . }}
                     <tr>
-                        <td style="width: calc(33.3333% + 0px);" class="">
+                        <td style="width: calc(13.3333% + 0px);" class="">
                             <p class="name">{{ .Name }}</p>
                         </td>
-                        <td style="width: calc(33.3333% + 0px);" class="">
+                        <td style="width: calc(8.3333% + 0px);" class="">
                             <p class="name">{{ .OS }}</p>
                         </td>
+                        <td style="width: calc(13.3333% + 0px);" class="">
+                            <p class="name">{{ .IP }}</p>
+                        </td>
                         <td style="width: 10%;" class="" align="center">
-                            <p class="status" >{{ .Status }}</p>
+                            <a href="" class="status">{{ .Status }}</a>
                         </td>
                     </tr>
                     {{ end }}
