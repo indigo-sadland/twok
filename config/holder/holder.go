@@ -1,3 +1,4 @@
+// Package holder is a context that can be used by controllers to access application settings.
 package holder
 
 import (

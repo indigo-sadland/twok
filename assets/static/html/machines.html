@@ -40,7 +40,7 @@
                 <div style="flex: 1 1 10%;"></div>
             </div>
             <div class="table-wrapper">
-                <table class="table is-fullwidth">
+                <table class="table is-fullwidth" id="machinesTable">
                     <thead class="table-header">
                     <tr class="table-head-row">
                         <th style="width: calc(13.3333% + 0px);">
@@ -78,7 +78,7 @@
                             <p class="name">{{ .IP }}</p>
                         </td>
                         <td style="width: 10%;" class="" align="center">
-                            <a href="" class="status">{{ .Status }}</a>
+                            <a href="" class="status" onclick="changeState()">{{ .Status }}</a>
                         </td>
                     </tr>
                     {{ end }}

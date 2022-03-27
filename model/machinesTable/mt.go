@@ -1,5 +1,5 @@
-// Package machine provides access to the machines' table in DB.
-package machine
+// Package machinesTable provides access to the machines' table in DB.
+package machinesTable
 
 import (
 	"database/sql"
@@ -15,7 +15,11 @@ type Item struct {
 	Status string `db:"status"`
 }
 
-var table = "machines"
+var (
+	table         = "machines"
+	StatusRunning = "Running"
+	StatusStopped = "Stopped"
+)
 
 // Connection is an interface for making queries.
 type Connection interface {
@@ -24,10 +28,13 @@ type Connection interface {
 	Select(dest interface{}, query string, args ...interface{}) error
 }
 
-// ByID gets an item by its ID.
-//func ByID(db Connection, ID string) (Item, bool, error)  {
-
-//}
+// ByStatus gets an item by its status.
+func ByStatus(db Connection, status string) (Item, bool, error) {
+	result := Item{}
+	err := db.Get(&result, fmt.Sprintf(`
+		SELECT name FROM %v WHERE status = ? LIMIT 1`, table), status)
+	return result, err == sql.ErrNoRows, err
+}
 
 // Create adds a new item.
 func Create(db Connection, name, os, ip, status string) (sql.Result, error) {
@@ -36,18 +43,17 @@ func Create(db Connection, name, os, ip, status string) (sql.Result, error) {
 	return result, err
 }
 
-// Update changes an existing item.
-func Update(db Connection, ID, status string) (sql.Result, error) {
-	result, err := db.Exec(fmt.Sprintf(`UPDATE %v SET status = ? WHERE ID = ?`, table), status, ID)
+// UpdateStatus changes an existing item's status.
+func UpdateStatus(db Connection, name, status string) (sql.Result, error) {
+	result, err := db.Exec(fmt.Sprintf(`UPDATE %v SET status = ? WHERE name = ?`, table), status, name)
 
 	return result, err
-
 }
 
 // SelectAll gets all data from the machine table.
-func SelectAll(db Connection) ([]Item, error){
+func SelectAll(db Connection) ([]Item, error) {
 	var result []Item
 	err := db.Select(&result, fmt.Sprintf(`SELECT * FROM %v`, table))
 
-	return  result, err
+	return result, err
 }

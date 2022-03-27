@@ -2,7 +2,7 @@ package server
 
 import "strconv"
 
-// Values boot's settings.
+// Values holds server's settings.
 type Values struct {
 	Hostname string
 	HTTPPort int
