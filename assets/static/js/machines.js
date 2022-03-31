@@ -14,18 +14,27 @@ function changeClass(){
 // changeState() sends POST request to the backend
 //with name and status of a machine that was selected.
 function changeState() {
-    let table = document.getElementById("machinesTable");
     let curObj;
+    let table = document.getElementById("machinesTable");
+    let spinner = document.getElementById("spinner");
 
     if (table != null) {
+        spinner.style.visibility = "visible";
         for (let i = 0; i < table.rows.length; i++) {
             table.rows[i].onclick = function() {
                 curObj = tableText(this);
 
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", "/machines", false);
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.send(JSON.stringify(curObj));
+                let http = new XMLHttpRequest();
+                http.open("POST", "/machines", false);
+                http.setRequestHeader("Content-Type", "application/json");
+                http.send(JSON.stringify(curObj));
+
+                // Wait for response from the server to hide the spinner.
+                http.onreadystatechange = function () {
+                    if(http.readyState === 4 && http.status === 200) {
+                        spinner.style.visibility = "hidden";
+                    }
+                }
             };
         }
     }

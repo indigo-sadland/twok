@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	conf, _ := config.Load("envt.json")
+	conf, _ := config.Load("env.json")
 
 	boot.Initialize(conf)
 }
