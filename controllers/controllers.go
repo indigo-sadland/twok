@@ -1,3 +1,4 @@
+// Package controllers handles requests for each of the controllers.
 package controllers
 
 import (
@@ -5,8 +6,8 @@ import (
 	"github.com/indigo-sadland/twok/controllers/machines"
 )
 
-func Load() {
+// LoadRoutes loads the routes for each of the controllers.
+func LoadRoutes() {
 	home.Load()
 	machines.Load()
-
 }

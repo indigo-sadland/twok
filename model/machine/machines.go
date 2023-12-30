@@ -1,16 +1,17 @@
-// Package machines provides access to the machines' table in DB.
-package machines
+// Package machine provides access to the machines' table in DB.
+package machine
 
 import (
 	"database/sql"
 	"fmt"
 )
 
-// Item describes the model of the machines' table.
+// Item describes the model of the machine' table.
 type Item struct {
 	ID     uint32 `db:"id"`
 	Name   string `db:"name"`
 	OS     string `db:"os"`
+	IP     string `db:"ip"`
 	Status string `db:"status"`
 }
 
@@ -29,8 +30,8 @@ type Connection interface {
 //}
 
 // Create adds a new item.
-func Create(db Connection, name, os string) (sql.Result, error) {
-	result, err := db.Exec(fmt.Sprintf(`INSERT INTO %v (name, os) VALUES (?,?)`, table), name, os)
+func Create(db Connection, name, os, ip, status string) (sql.Result, error) {
+	result, err := db.Exec(fmt.Sprintf(`INSERT INTO %v (name, os, ip, status) VALUES (?,?,?,?)`, table), name, os, ip, status)
 
 	return result, err
 }
@@ -43,7 +44,7 @@ func Update(db Connection, ID, status string) (sql.Result, error) {
 
 }
 
-// SelectAll gets all data from the machines table.
+// SelectAll gets all data from the machine table.
 func SelectAll(db Connection) ([]Item, error){
 	var result []Item
 	err := db.Select(&result, fmt.Sprintf(`SELECT * FROM %v`, table))

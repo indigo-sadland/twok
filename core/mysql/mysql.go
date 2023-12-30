@@ -1,3 +1,4 @@
+// Package mysql handles connection to DB during initialization.
 package mysql
 
 import (
@@ -50,7 +51,6 @@ func (v Values) Connect() (*sqlx.DB, error) {
 
 // Create a new database.
 func (v Values) Create(sql *sqlx.DB) error {
-
 	// Create the database
 	_, err := sql.Exec(fmt.Sprintf(`CREATE DATABASE %v
 				DEFAULT CHARSET = %v
