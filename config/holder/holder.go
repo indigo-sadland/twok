@@ -40,7 +40,7 @@ func StoreDB(db *sqlx.DB) {
 }
 
 // Context returns the application settings.
-func Context(w gin.ResponseWriter, r *http.Request) Values {
+func Context() Values {
 	//var id string
 
 	//// Get the session
@@ -56,8 +56,8 @@ func Context(w gin.ResponseWriter, r *http.Request) Values {
 	i := Values{
 		Config: configValues,
 		//Sess:   sess,
-		W:  w,
-		R:  r,
+		//W:  w,
+		//R:  r,
 		DB: dbInfo,
 	}
 	mutex.RUnlock()
