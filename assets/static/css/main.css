@@ -1,0 +1,173 @@
+
+
+body {
+    background-color: #c394d6;
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.62;
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.text-home {
+    font-family: 'Turret Road', cursive;
+    color: #ffffff;
+    font-style: italic;
+    font-size: 40px;
+    letter-spacing: 10px;
+    text-decoration-line: underline;
+    text-decoration-color: rgba(200, 53, 53, 0.81);
+    text-decoration-thickness: 2px;
+    background-color: #de5760;
+}
+
+.nav {
+    font-family: 'Turret Road', cursive;
+    list-style-type: none;
+    overflow: hidden;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 30px;
+    font-size: 25px;
+
+}
+
+.navBarAnim {
+    font-family: 'Turret Road', cursive;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.navBarAnim * {
+    box-sizing: border-box;
+}
+.navBarAnim li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0.5em 1em;
+    overflow: hidden;
+    position: relative;
+    border-radius: 3px;
+}
+.navBarAnim li:before,
+.navBarAnim li:after {
+    display: block;
+}
+.navBarAnim li:before {
+    bottom: 0%;
+}
+.navBarAnim li:after {
+    bottom: 75%;
+}
+.navBarAnim a {
+    backface-visibility: hidden;
+    color: #000000;
+    display: block;
+    padding: 0.5em 1em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+.navBarAnim a:before {
+    bottom: 25%;
+}
+.navBarAnim a:after {
+    bottom: 50%;
+}
+.navBarAnim a:hover {
+    color: #ffffff;
+}
+.navBarAnim li:before,
+.navBarAnim li:after,
+.navBarAnim a:before,
+.navBarAnim a:after {
+    background-color: rgba(200, 53, 53, 0.81);
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    left: 0;
+    content: '';
+    z-index: -1;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    opacity: 0;
+    -webkit-transition: all 0.35s steps(4);
+    transition: all 0.35s steps(4);
+}
+.navBarAnim li:hover:before,
+.navBarAnim li.current:before {
+    -webkit-animation: navBarAnim 0.7s 0s steps(4);
+    animation: navBarAnim 0.7s 0s steps(4);
+}
+.navBarAnim li:hover:after,
+.navBarAnim li.current:after {
+    -webkit-animation: navBarAnim 0.7s 0.15s steps(4);
+    animation: navBarAnim 0.7s 0.15s steps(4);
+}
+.navBarAnim li:hover a:before,
+.navBarAnim li.current a:before {
+    -webkit-animation: navBarAnim 0.7s 0.05s steps(4);
+    animation: navBarAnim 0.7s 0.05s steps(4);
+}
+.navBarAnim li:hover a:after,
+.navBarAnim li.current a:after {
+    -webkit-animation: navBarAnim 0.7s 0.1s steps(4);
+    animation: navBarAnim 0.7s 0.1s steps(4);
+}
+.navBarAnim li:hover:before,
+.navBarAnim li.current:before,
+.navBarAnim li:hover:after,
+.navBarAnim li.current:after,
+.navBarAnim li:hover a:before,
+.navBarAnim li.current a:before,
+.navBarAnim li:hover a:after,
+.navBarAnim li.current a:after {
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes navBarAnim {
+    33% {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    55% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    70% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
