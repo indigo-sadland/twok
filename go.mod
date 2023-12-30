@@ -7,6 +7,7 @@ require (
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/projectdiscovery/gologger v1.1.4
+	github.com/terra-farm/go-virtualbox v0.0.4
 )
 
 require (

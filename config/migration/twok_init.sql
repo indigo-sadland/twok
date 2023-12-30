@@ -13,7 +13,7 @@ CREATE TABLE machines (
     name VARCHAR(50) NOT NULL,
     os VARCHAR(25) NOT NULL,
     ip VARCHAR(25) NOT NULL,
-    status VARCHAR(25) NOT NULL,
+    status VARCHAR(25) NOT NULL DEFAULT 'Stopped',
 
     PRIMARY KEY (id)
 );
