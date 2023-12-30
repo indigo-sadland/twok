@@ -1,11 +1,13 @@
+// Package config holds functions that handle parsing of the config file.
 package config
 
 import (
 	"encoding/json"
 	"io/ioutil"
-	"twok/core/assets"
-	"twok/core/mysql"
-	"twok/core/server"
+
+	"github.com/indigo-sadland/twok/core/assets"
+	"github.com/indigo-sadland/twok/core/mysql"
+	"github.com/indigo-sadland/twok/core/server"
 )
 
 // Values structures the application settings.

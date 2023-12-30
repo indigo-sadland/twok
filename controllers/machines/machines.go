@@ -1,4 +1,4 @@
-package home
+package machines
 
 import (
 	"github.com/gin-gonic/gin"
@@ -7,9 +7,9 @@ import (
 
 func Load() {
 	r := router.GetRouter()
-	r.GET("/", Get)
+	r.GET("/machines", Get)
 }
 
 func Get(c *gin.Context) {
-	c.HTML(200, "home.html", "")
+	c.HTML(200, "machines.html", "")
 }
