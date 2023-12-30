@@ -15,6 +15,7 @@
     <!-- My CSS Style -->
     <link href="/assets/static/css/table.css" rel="stylesheet" >
     <link href="/assets/static/css/main.css" rel="stylesheet" >
+    <link href="/assets/static/css/spinner.css" rel="stylesheet" >
 
     <script type="text/javascript" src="/assets/static/js/machines.js"></script>
 
@@ -32,7 +33,9 @@
     <li><a href="#blog">BLOG</a></li>
 </ul>
 
+
 <div class="center-screen">
+    <div class="spinner" id="spinner" style="visibility: hidden"></div>
     <div class="container">
         <div class="paper">
             <div class="datatable-title-wrapper">
@@ -84,35 +87,6 @@
                     {{ end }}
                     </tbody>
                 </table>
-            </div>
-            <div class="pagination-outer-wrapper">
-                <div class="pagination-wrapper"><span>
-                    <button class="pagination-btn" disabled="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                            <title>chevrons-left</title>
-                            <path d="M11.707 16.293 7.414 12l4.293-4.293a.999.999 0 1 0-1.414-1.414l-5 5a.999.999 0 0 0 0 1.414l5 5a.999.999 0 1 0 1.414-1.414zm7 0L14.414 12l4.293-4.293a.999.999 0 1 0-1.414-1.414l-5 5a.999.999 0 0 0 0 1.414l5 5a.999.999 0 1 0 1.414-1.414z"></path>
-                        </svg>
-                    </button>
-                </span>
-                    <span>
-                        <button class="pagination-btn" disabled="">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                    </span>
-                    <span class="pagination-caption">1 - 3 of 40</span>
-                    <span>
-                        <button class="pagination-btn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </span>
-                    <span>
-                        <button class="pagination-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                            <title>chevrons-right</title>
-                            <path d="m13.707 17.707 5-5a.999.999 0 0 0 0-1.414l-5-5a.999.999 0 1 0-1.414 1.414L16.586 12l-4.293 4.293a.999.999 0 1 0 1.414 1.414zm-7 0 5-5a.999.999 0 0 0 0-1.414l-5-5a.999.999 0 1 0-1.414 1.414L9.586 12l-4.293 4.293a.999.999 0 1 0 1.414 1.414z"></path>
-                        </svg>
-                        </button>
-                    </span>
-                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,30 @@
+.spinner{
+    position: absolute;
+    display: flex;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    z-index: 1;
+}
+
+.spinner:before{
+    position: absolute;
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    box-shadow: inset -5px 0 0 5px #de5760;
+    clip: rect(0, 70px, 35px, 0);
+    animation: spin 1s infinite ease;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(-180);
+        box-shadow: inset -5px 0 0 5px #de5760;
+    }
+    100% {
+        transform: rotate(360deg);
+        box-shadow: inset -2px 0 0 3px #de5760;
+    }
+}
